@@ -19,9 +19,10 @@ public class PersonDTOOutput {
     private String city;
     private Boolean active;
     private Date created_date;
-    private String imagen_url;
+    private String image_url;
     private Date termination_date;
 
+    // constructor
     public PersonDTOOutput(PersonEntity persona){
         setId_persona(persona.getId_person());
         setUsuario(persona.getUsuario());
@@ -32,7 +33,7 @@ public class PersonDTOOutput {
         setCity(persona.getCity());
         setActive(persona.getActive());
         setCreated_date(persona.getCreated_date());
-        setImagen_url(persona.getImage_url());
+        setImage_url(persona.getImage_url());
         setTermination_date(persona.getTermination_date());
     }
 }

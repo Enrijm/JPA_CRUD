@@ -1,14 +1,11 @@
 package Domain;
 
-
 import Infrastructure.PersonDTOInput;
 import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.Date;
-
 
 @Data
 @NoArgsConstructor
@@ -109,8 +106,5 @@ public class PersonEntity {
         if(personaIn.getImagen_url() != null){
             setImage_url(personaIn.getImagen_url());
         }
-
-
     }
-
 }
