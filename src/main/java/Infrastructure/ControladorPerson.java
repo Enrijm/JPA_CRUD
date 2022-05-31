@@ -33,4 +33,5 @@ public class ControladorPerson {
     public List<PersonDTOOutput> getAll()throws Exception{
         return personService.getPersonas();
     }
+
 }

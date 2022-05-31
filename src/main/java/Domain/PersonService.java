@@ -16,7 +16,7 @@ public interface PersonService{
     List<PersonDTOOutput> getByName(String name)throws Exception;
 
     //UPDATE
-    PersonDTOOutput updatePersona(PersonDTOInput personaIn) throws Exception;
+    PersonDTOOutput updatePersona(Integer id,PersonDTOInput personaIn) throws Exception;
 
     //DELETE
     void deletePersona(Integer id) throws Exception;

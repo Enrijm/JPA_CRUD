@@ -51,8 +51,11 @@ public class PersonServiceImp implements PersonService{
 
     //UPDATE
     @Override
-    public PersonDTOOutput updatePersona(PersonDTOInput personaIn) throws Exception{
-        return null;
+    public PersonDTOOutput updatePersona(Integer id,PersonDTOInput personaIn) throws Exception{
+        PersonEntity personToUpdate = personRepository.findById(id).orElseThrow(()-> new Exception("Persona no encontrada para actualizar" + id));
+        personToUpdate.update(personaIn);
+        personRepository.save(personToUpdate);
+        return new PersonDTOOutput(personToUpdate);
     }
 
     //DELETE

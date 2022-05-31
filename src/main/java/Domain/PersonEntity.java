@@ -81,4 +81,36 @@ public class PersonEntity {
         setSurname(personaIn.getSurname());
     }
 
+    public void update(PersonDTOInput personaIn)throws Exception{
+        if(personaIn.getUsuario() != null
+                && personaIn.getUsuario().length() <= 10
+                && personaIn.getUsuario().length() >= 6
+        ){
+            setUsuario(personaIn.getUsuario());
+        }
+        if(personaIn.getName() != null){
+            setName(personaIn.getName());
+        }
+        if(personaIn.getPassword() != null){
+            setPassword(personaIn.getPassword());
+        }
+        if(personaIn.getCompany_email() != null){
+            setCompany_email(personaIn.getCompany_email());
+        }
+        if(personaIn.getPersonal_email() != null){
+            setPersonal_email(personaIn.getPersonal_email());
+        }
+        if(personaIn.getCity() != null){
+            setCity(personaIn.getCity());
+        }
+        if(personaIn.getSurname() != null){
+            setSurname(personaIn.getSurname());
+        }
+        if(personaIn.getImagen_url() != null){
+            setImage_url(personaIn.getImagen_url());
+        }
+
+
+    }
+
 }
