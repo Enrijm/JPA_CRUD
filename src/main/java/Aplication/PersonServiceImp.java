@@ -1,8 +1,8 @@
 package Aplication;
 
 import Domain.PersonEntity;
-import Infrastructure.Dto.PersonDTOInput;
-import Infrastructure.Dto.PersonDTOOutput;
+import Infrastructure.Dto.Input.PersonDTOInput;
+import Infrastructure.Dto.Output.PersonDTOOutput;
 import Infrastructure.Repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

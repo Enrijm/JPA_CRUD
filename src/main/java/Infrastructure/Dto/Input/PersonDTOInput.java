@@ -1,4 +1,4 @@
-package Infrastructure.Dto;
+package Infrastructure.Dto.Input;
 
 import lombok.Data;
 // DTO - DATA TRANSMISSION OBJECT - less arguments than Entity because we masked it, such as password , personal_email...

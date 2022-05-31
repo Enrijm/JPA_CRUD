@@ -2,8 +2,8 @@ package Infrastructure.Controller.dto;
 
 
 import Aplication.PersonService;
-import Infrastructure.Dto.PersonDTOInput;
-import Infrastructure.Dto.PersonDTOOutput;
+import Infrastructure.Dto.Input.PersonDTOInput;
+import Infrastructure.Dto.Output.PersonDTOOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;

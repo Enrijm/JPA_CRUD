@@ -1,4 +1,4 @@
-package Infrastructure.Dto;
+package Infrastructure.Dto.Output;
 
 import Domain.PersonEntity;
 import lombok.Data;
