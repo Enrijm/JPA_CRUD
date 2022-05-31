@@ -1,6 +1,6 @@
 package Domain;
 
-import Infrastructure.PersonDTOInput;
+import Infrastructure.Dto.PersonDTOInput;
 import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;

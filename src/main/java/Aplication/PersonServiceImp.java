@@ -1,7 +1,9 @@
-package Domain;
+package Aplication;
 
-import Infrastructure.PersonDTOInput;
-import Infrastructure.PersonDTOOutput;
+import Domain.PersonEntity;
+import Infrastructure.Dto.PersonDTOInput;
+import Infrastructure.Dto.PersonDTOOutput;
+import Infrastructure.Repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;

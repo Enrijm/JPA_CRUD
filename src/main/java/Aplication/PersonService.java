@@ -1,7 +1,7 @@
-package Domain;
+package Aplication;
 
-import Infrastructure.PersonDTOInput;
-import Infrastructure.PersonDTOOutput;
+import Infrastructure.Dto.PersonDTOInput;
+import Infrastructure.Dto.PersonDTOOutput;
 import java.util.List;
 
 

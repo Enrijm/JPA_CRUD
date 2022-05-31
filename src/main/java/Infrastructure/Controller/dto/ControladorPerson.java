@@ -1,7 +1,9 @@
-package Infrastructure;
+package Infrastructure.Controller.dto;
 
 
-import Domain.PersonService;
+import Aplication.PersonService;
+import Infrastructure.Dto.PersonDTOInput;
+import Infrastructure.Dto.PersonDTOOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
