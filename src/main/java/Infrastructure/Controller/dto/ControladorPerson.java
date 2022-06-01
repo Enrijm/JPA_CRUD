@@ -1,7 +1,7 @@
 package Infrastructure.Controller.dto;
 
-
-import Aplication.PersonService;
+import Aplication.Port.CreatePersonPort;
+import Aplication.Port.ReadPersonPort;
 import Infrastructure.Dto.Input.PersonDTOInput;
 import Infrastructure.Dto.Output.PersonDTOOutput;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +13,21 @@ import java.util.List;
 
 public class ControladorPerson {
     @Autowired
-    PersonService personService;
+    CreatePersonPort createPersonPort;
+    @Autowired
+    ReadPersonPort readPersonPort;
 
     @PostMapping("/addPerson")
     public PersonDTOOutput addPersona(@RequestBody PersonDTOInput personaIn) throws Exception{
-        return personService.addPersona(personaIn);
+        return createPersonPort.addPersona(personaIn);
     }
 
     @GetMapping("/personByName")
     public List<PersonDTOOutput> getByName(String name)throws Exception{
-        return personService.getByName(name);
+        return readPersonPort.getByName(name);
     }
     @GetMapping("/all")
     public List<PersonDTOOutput> getAll()throws Exception{
-        return personService.getPersonas();
+        return readPersonPort.getPersonas();
     }
 }
