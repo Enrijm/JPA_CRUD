@@ -1,9 +1,9 @@
 package Domain;
 
 import Infrastructure.Dto.Input.PersonDTOInput;
-import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,65 +13,40 @@ import java.util.Date;
 @Entity
 @Table(name = "Personas")
 public class PersonEntity {
+    // Las etiquetas de not null o maximo y minimo lo haremos directamente en DTOinput que recibiremos
     @Id @GeneratedValue
     private Integer id_person;
-    @Column@NotNull
+    @Column
     private String usuario; // tengo que hacerlo NO NULL MAX-Length 10 - min:6
-    @Column@NotNull
+    @Column
     private String password; // NOT NULL
-    @Column@NotNull
+    @Column
     private String name; // NOT NULL
     @Column
     private String surname;
-    @Column@NotNull
+    @Column
     private String company_email; // NOT NULL
-    @Column@NotNull
+    @Column
     private String personal_email;// NOT NULL
-    @Column@NotNull
+    @Column
     private String city;// NOT NULL
-    @Column@NotNull
+    @Column
     private Boolean active;// NOT NULL
-    @Column@NotNull
+    @Column
     private Date created_date;// NOT NULL
-    @Column@NotNull
+    @Column
     private String image_url;
-    @Column@NotNull
+    @Column
     private Date termination_date;
 
     public PersonEntity(PersonDTOInput personaIn) throws Exception{
-        if(personaIn.getUsuario() != null
-                && personaIn.getUsuario().length() <= 10
-                && personaIn.getUsuario().length() >= 6
-        ){
-            setUsuario(personaIn.getUsuario());
-        }else{
-            throw new Exception("El campo usuario debe tener entre 6 y 10 caracteres");
-        }
-        if(personaIn.getName() == null){
-            throw new Exception("El campo nombre no puede estar vacío");
-        }else{
-            setName(personaIn.getName());
-        }
-        if(personaIn.getPassword() == null){
-            throw new Exception("El campo contraseña no puede estar vacío");
-        }else{
-            setPassword(personaIn.getPassword());
-        }
-        if(personaIn.getCompany_email() == null){
-            throw new Exception("El campo email de compañia no puede estar vacío");
-        }else{
-            setCompany_email(personaIn.getCompany_email());
-        }
-        if(personaIn.getPersonal_email() == null){
-            throw new Exception("El campo email personal no puede estar vacío");
-        }else{
-            setPersonal_email(personaIn.getPersonal_email());
-        }
-        if(personaIn.getCity() == null){
-            throw new Exception("El campo ciudad no puede estar vacío");
-        }else{
-            setCity(personaIn.getCity());
-        }
+        //Validaciones en en PersonaInputDTO
+        setUsuario(personaIn.getUsuario());
+        setName(personaIn.getName());
+        setPassword(personaIn.getPassword());
+        setCompany_email(personaIn.getCompany_email());
+        setPersonal_email(personaIn.getPersonal_email());
+        setCity(personaIn.getCity());
         setCreated_date(new Date());
         setActive(true);
         setImage_url(personaIn.getImagen_url());
