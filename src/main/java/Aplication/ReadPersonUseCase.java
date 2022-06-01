@@ -1,29 +1,19 @@
 package Aplication;
 
+import Aplication.Port.ReadPersonPort;
 import Domain.PersonEntity;
-import Infrastructure.Dto.Input.PersonDTOInput;
 import Infrastructure.Dto.Output.PersonDTOOutput;
 import Infrastructure.Repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
-public class PersonServiceImp implements PersonService{
+public class ReadPersonUseCase implements ReadPersonPort {
 
     @Autowired
     PersonRepository personRepository;
 
-    //CREATE
-    @Override
-    public PersonDTOOutput addPersona(PersonDTOInput personaIn) throws Exception{
-        PersonEntity persona = new PersonEntity(personaIn);
-        personRepository.save(persona);
-        return new PersonDTOOutput(persona);
-    }
-
-    //READ
     @Override
     public PersonDTOOutput getPersonaById(Integer id) throws Exception{
         PersonEntity persona = personRepository.findById(id).orElseThrow(() -> new Exception ("Persona no encontrada para id: " + id));
@@ -38,7 +28,6 @@ public class PersonServiceImp implements PersonService{
         });
         return personDTOOutputList;
     }
-
     @Override
     public List<PersonDTOOutput> getByName(String name){
         List<PersonDTOOutput> listaSalida = new ArrayList<>();
@@ -47,21 +36,4 @@ public class PersonServiceImp implements PersonService{
         });
         return listaSalida;
     }
-
-
-    //UPDATE
-    @Override
-    public PersonDTOOutput updatePersona(Integer id,PersonDTOInput personaIn) throws Exception{
-        PersonEntity personToUpdate = personRepository.findById(id).orElseThrow(()-> new Exception("Persona no encontrada para actualizar" + id));
-        personToUpdate.update(personaIn);
-        personRepository.save(personToUpdate);
-        return new PersonDTOOutput(personToUpdate);
-    }
-
-    //DELETE
-    @Override
-    public void deletePersona(Integer id) throws Exception{
-        personRepository.deleteById(id);
-    }
-
 }
