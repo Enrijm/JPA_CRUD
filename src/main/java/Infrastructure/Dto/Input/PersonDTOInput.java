@@ -10,6 +10,7 @@ import javax.validation.constraints.*;
 // he tomado DTO Input como la informacion que recibo de front, de un usuario que quiere registrarse
 
 public class PersonDTOInput {
+    // Hacemos etiquetas de validacion ya que esta es la informacion que tenemos que comprobar
     @NotEmpty(message = "User cannot be empty")
     @Size(min = 6 , max = 10 , message = "It has to be minimun 6 and maximun 10 characters")
     private String usuario;
