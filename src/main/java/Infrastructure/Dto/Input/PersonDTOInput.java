@@ -1,19 +1,30 @@
 package Infrastructure.Dto.Input;
 
+
+
 import lombok.Data;
-// DTO - DATA TRANSMISSION OBJECT - less arguments than Entity because we masked it, such as password , personal_email...
+import javax.validation.constraints.*;
+
+
 @Data
-
-
 // he tomado DTO Input como la informacion que recibo de front, de un usuario que quiere registrarse
 
 public class PersonDTOInput {
+    @NotEmpty(message = "User cannot be empty")
+    @Size(min = 6 , max = 10 , message = "It has to be minimun 6 and maximun 10 characters")
     private String usuario;
+    @NotEmpty(message = "Name cannot be empty")
     private String name;
     private String surname;
+    @NotEmpty(message = "Password cannot be empty")
     private String password;
+    @NotEmpty(message = "Company email cannot be empty")
+    @Email(message = "Company email is not valid")
     private String company_email;
+    @NotEmpty(message = "Personal email cannot be empty")
+    @Email(message = "Personal email is not valid")
     private String personal_email;
+    @NotEmpty(message = "City can not be empty")
     private String city;
     private String imagen_url;
 }
