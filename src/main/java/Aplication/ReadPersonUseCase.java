@@ -4,6 +4,7 @@ import Aplication.Port.ReadPersonPort;
 import Domain.PersonEntity;
 import Infrastructure.Dto.Output.PersonDTOOutput;
 import Infrastructure.Repository.PersonRepository;
+import Infrastructure.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -15,8 +16,8 @@ public class ReadPersonUseCase implements ReadPersonPort {
     PersonRepository personRepository;
 
     @Override
-    public PersonDTOOutput getPersonaById(Integer id) throws Exception{
-        PersonEntity persona = personRepository.findById(id).orElseThrow(() -> new Exception ("Persona no encontrada para id: " + id));
+    public PersonDTOOutput getPersonaById(Integer id) throws NotFoundException {
+        PersonEntity persona = personRepository.findById(id).orElseThrow(() -> new NotFoundException ("Persona no encontrada para id: " + id));
         return new PersonDTOOutput(persona);
     }
     @Override

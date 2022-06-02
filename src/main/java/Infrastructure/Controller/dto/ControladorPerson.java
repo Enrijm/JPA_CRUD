@@ -32,12 +32,8 @@ public class ControladorPerson {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PersonDTOOutput> getPersonaById(@PathVariable("id") Integer id) {
-        try{
-            return new ResponseEntity<>(readPersonPort.getPersonaById(id), HttpStatus.OK);
-        }catch(Exception e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public PersonDTOOutput getPersonaById(@PathVariable("id") Integer id) {
+        return readPersonPort.getPersonaById(id);
     }
 
     @GetMapping("/all")
