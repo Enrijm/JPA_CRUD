@@ -17,7 +17,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     public final ResponseEntity<CustomError> handleNotFoundException(NotFoundException ex){
         CustomError error = new CustomError(
                 new Date(),
-                404,
+                HttpStatus.NOT_FOUND.value(),
                 ex.getMessage()
         );
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
@@ -28,12 +28,9 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     public final ResponseEntity<CustomError> handleUnprocesableException(UnprocesableException ex){
         CustomError error = new CustomError(
                 new Date(),
-                422,
+                HttpStatus.UNPROCESSABLE_ENTITY.value(),
                 ex.getMessage()
         );
         return new ResponseEntity<>(error, HttpStatus.UNPROCESSABLE_ENTITY);
     }
-
-
-
 }
