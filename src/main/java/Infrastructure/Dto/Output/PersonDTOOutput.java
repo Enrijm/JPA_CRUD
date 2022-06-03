@@ -10,7 +10,7 @@ import java.util.Date;
 // He tomado DTO output como informacion tratada que queremos enviar a FRONT
 
 public class PersonDTOOutput {
-    private Integer id_persona;
+    private String id_persona;
     private String usuario;
     private String name;
     private String surname;

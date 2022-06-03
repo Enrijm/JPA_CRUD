@@ -3,9 +3,12 @@ package Domain;
 import Infrastructure.Dto.Input.PersonDTOInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 import java.util.Date;
+
 
 @Data
 @NoArgsConstructor
@@ -13,9 +16,28 @@ import java.util.Date;
 @Entity
 @Table(name = "Personas")
 public class PersonEntity {
-    // Las etiquetas de not null o maximo y minimo lo haremos directamente en DTOinput que recibiremos
-    @Id @GeneratedValue
-    private Integer id_person;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idGenerator")
+
+    @GenericGenerator(
+
+            name = "idGenerator",
+
+            strategy = "Domain.IdPersonaSequenceIdGenerator",
+
+            parameters = {
+
+                    @Parameter(name = IdPersonaSequenceIdGenerator.INCREMENT_PARAM, value = "100"),
+
+                    @Parameter(name = IdPersonaSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "PER"),
+
+                    @Parameter(name = IdPersonaSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%08d")
+
+            })
+
+    @Column(name = "id")
+    private String id_person;
     @Column
     private String usuario; // tengo que hacerlo NO NULL MAX-Length 10 - min:6
     @Column
